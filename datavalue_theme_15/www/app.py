@@ -77,7 +77,7 @@ def get_context(context):
             "google_analytics_anonymize_ip": frappe.conf.get("google_analytics_anonymize_ip"),
             "mixpanel_id": frappe.conf.get("mixpanel_id"),
             "theme_settings": theme_settings_list,
-            "theme_color": (theme_settings_list['theme_color'] or 'Blue').lower() if 'theme_color' in theme_settings_list else 'blue',
+            "theme_color": 'blue' if theme_settings_list.get('theme_color') == 'Ocean' else (theme_settings_list.get('theme_color') or 'blue').lower(),
             "theme_color_on_navbar": 'layout-navbar-color-style' if ('apply_on_navbar' in theme_settings_list and theme_settings_list['apply_on_navbar'] == '1') else '',
             "apply_on_menu": 'layout-menu-color-style' if ('apply_on_menu' in theme_settings_list and theme_settings_list['apply_on_menu'] == '1') else '',
             "apply_on_dashboard": 'layout-dashboard-color-style' if ('apply_on_dashboard' in theme_settings_list and theme_settings_list['apply_on_dashboard'] == '1') else '',
